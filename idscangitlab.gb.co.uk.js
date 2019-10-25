@@ -21,6 +21,8 @@ window.onload = function(){
         var ides2_p2 = new RegExp('^Resolve IDES2-[0-9]{4}: ');
         var ires_p1 = new RegExp('^IRES-[0-9]{4}: ');
         var ires_p2 = new RegExp('^Resolve IRES-[0-9]{4}: ');
+        var idfb_p1 = new RegExp('^IDFB-[0-9]{1,4}: ');
+        var idfb_p2 = new RegExp('^Resolve IDFB-[0-9]{1,4}: ');
         var wip_p= new RegExp('^WIP: ');
         var cherry_pick_p= new RegExp('^Merge branch ');
         var exp_p= new RegExp('^EXP: ');
@@ -29,6 +31,8 @@ window.onload = function(){
            !ides2_p2.test(MR_title) &&
            !ires_p1.test(MR_title) &&
            !ires_p2.test(MR_title) &&
+           !idfb_p1.test(MR_title) &&
+           !idfb_p2.test(MR_title) &&
            !wip_p.test(MR_title) &&
            !cherry_pick_p.test(MR_title) &&
            !exp_p.test(MR_title)) {
@@ -36,8 +40,10 @@ window.onload = function(){
             var msg = 'The MR title is invalid. The MR title should start with one of the following patterns - \n' +
                       '* IDES2-1234: ' + '\n' +
                       '* IRES-1234: ' + '\n' +
+                      '* IDFB-1234: ' + '\n' +
                       '* Resolve IDES2-1234: ' + '\n' +
                       '* Resolve IRES-1234: ' + '\n' +
+                      '* Resolve IDFB-1234: ' + '\n' +
                       '* WIP: -> for work in progress' + '\n' +
                       '* Merge: -> generally for cherry pick merges' + '\n' +
                       '* Exp: -> for experimental purposes'
