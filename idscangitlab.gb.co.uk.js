@@ -16,13 +16,23 @@ window.onload = function(){
 
         // do not allow to submit a MR if the MR title is invalid
         var MR_title = jQuery('[id="merge_request_title"]')[0].value
-        if(!MR_title.includes("IDES2") &&
-           !MR_title.includes("IRES") &&
-           !MR_title.includes("WIP") &&
-           !MR_title.includes("cherry-pick")) {
+        if(!MR_title.startsWith("IDES2: ") &&
+           !MR_title.startsWith("Resolve IDES2: ") &&
+           !MR_title.startsWith("IRES: ") &&
+           !MR_title.startsWith("Resolve IRES: ") &&
+           !MR_title.startsWith("WIP: ") &&
+           !MR_title.startsWith("EXP: ") &&
+           !MR_title.startsWith("Merge: ")) {
 
-            window.alert("The MR title is invalid. It has to contain IDES2, IRES, WIP or cherry-pick");
+            var msg = 'The MR title is invalid. The MR title should start with one of the following patterns - \n' +
+                      '* IDES2-1234: ' + '\n' +
+                      '* IRES-1234: ' + '\n' +
+                      '* Resolve IDES2-1234: ' + '\n' +
+                      '* Resolve IRES-1234: ' + '\n' +
+                      '* WIP: -> for work in progress' + '\n' +
+                      '* Merge: -> generally for cherry pick merges' + '\n' +
+                      '* Exp: -> for experimental purposes'
+            window.alert(msg);
         }
     }
-    // do not allow to submit a MR unless MR title is valid
 };
