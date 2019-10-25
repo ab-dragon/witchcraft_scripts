@@ -3,7 +3,18 @@ Collection of javascripts that can be executed everytime a website is opened
 
 # motivation
 Forget to select "Delete source branch when merge request is accepted" and "Squash commits when merge request is accepted" on your MRs?
-And have to go back to all your MRs and check those boxes? Not anymore - the cool tool witchcraft to the rescue.
+Forgot to tag the MR with a label?
+Your MR reviewer has noticed that your MR title does not follow the naming convention, and you have change it?
+Now imagine having to go back to all your MRs (in the complex merge) and make those corrections?
+Even worse, any change will rerun the MR, so putting even more pressure on CI resoures and time. During critical situations where you have to get your MR out quickly, this could delay the delivery.
+
+Not anymore - the cool tool witchcraft to the rescue.
+
+The javascript for gitlab does the following - 
+* Automatically checks the check-boxes as soon as you enter the MR page
+* Does not allow you to submit the MR if
+    * The title of the MR does not follow the naming convention
+    * You have not set a label for your MR
 
 If interested visit the website of Witchcraft for more information about how the tool works- https://luciopaiva.com/witchcraft/
 If not, just follow the simple steps below
