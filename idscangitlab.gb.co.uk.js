@@ -20,7 +20,7 @@ window.onload = function(){
            !MR_title.startsWith("Resolve IDES2-") &&
            !MR_title.startsWith("IRES-") &&
            !MR_title.startsWith("Resolve IRES-") &&
-           !MR_title.startsWith("WIP-") &&
+           !MR_title.startsWith("WIP:") &&
            !MR_title.startsWith("EXP-") &&
            !MR_title.startsWith("Merge-")) {
 
