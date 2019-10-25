@@ -16,13 +16,13 @@ window.onload = function(){
 
         // do not allow to submit a MR if the MR title is invalid
         var MR_title = jQuery('[id="merge_request_title"]')[0].value
-        if(!MR_title.startsWith("IDES2: ") &&
-           !MR_title.startsWith("Resolve IDES2: ") &&
-           !MR_title.startsWith("IRES: ") &&
-           !MR_title.startsWith("Resolve IRES: ") &&
-           !MR_title.startsWith("WIP: ") &&
-           !MR_title.startsWith("EXP: ") &&
-           !MR_title.startsWith("Merge: ")) {
+        if(!MR_title.startsWith("IDES2-") &&
+           !MR_title.startsWith("Resolve IDES2-") &&
+           !MR_title.startsWith("IRES-") &&
+           !MR_title.startsWith("Resolve IRES-") &&
+           !MR_title.startsWith("WIP-") &&
+           !MR_title.startsWith("EXP-") &&
+           !MR_title.startsWith("Merge-")) {
 
             var msg = 'The MR title is invalid. The MR title should start with one of the following patterns - \n' +
                       '* IDES2-1234: ' + '\n' +
