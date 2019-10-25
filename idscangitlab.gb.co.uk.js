@@ -16,13 +16,22 @@ window.onload = function(){
 
         // do not allow to submit a MR if the MR title is invalid
         var MR_title = jQuery('[id="merge_request_title"]')[0].value
-        if(!MR_title.startsWith("IDES2-") &&
-           !MR_title.startsWith("Resolve IDES2-") &&
-           !MR_title.startsWith("IRES-") &&
-           !MR_title.startsWith("Resolve IRES-") &&
-           !MR_title.startsWith("WIP:") &&
-           !MR_title.startsWith("EXP-") &&
-           !MR_title.startsWith("Merge-")) {
+
+        var ides2_p1 = new RegExp('^IDES2-[0-9]{4}: ');
+        var ides2_p2 = new RegExp('^Resolve IDES2-[0-9]{4}: ');
+        var ires_p1 = new RegExp('^IRES-[0-9]{4}: ');
+        var ires_p2 = new RegExp('^Resolve IRES-[0-9]{4}: ');
+        var wip_p= new RegExp('^WIP: ');
+        var cherry_pick_p= new RegExp('^Merge branch ');
+        var exp_p= new RegExp('^EXP: ');
+
+        if(!ides2_p1.test(MR_title) &&
+           !ides2_p2.test(MR_title) &&
+           !ires_p1.test(MR_title) &&
+           !ires_p2.test(MR_title) &&
+           !wip_p.test(MR_title) &&
+           !cherry_pick_p.test(MR_title) &&
+           !exp_p.test(MR_title)) {
 
             var msg = 'The MR title is invalid. The MR title should start with one of the following patterns - \n' +
                       '* IDES2-1234: ' + '\n' +
